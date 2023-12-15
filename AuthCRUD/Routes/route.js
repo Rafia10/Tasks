@@ -1,5 +1,5 @@
 import express from 'express'
-import { createUser, getUser, listUsers, updateUser } from '../Controller/auth.js'
+import { createUser, deleteUser, getUser, listUsers, updateUser } from '../Controller/auth.js'
 import { body } from 'express-validator'
 const router = express.Router()
 
@@ -11,7 +11,7 @@ body("password").isLength({ min: 9 }), createUser)
 router.patch('/update-user/:id',updateUser)
 
 //Delete user
-// router.delete('delete-user',updateUser)
+router.delete('/delete-user/:id',deleteUser)
 
 //Get User
 router.get('/get-user/:id',getUser)
